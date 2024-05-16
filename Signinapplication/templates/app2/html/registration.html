@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends "app2/html/base.html" %}
+{% block body_block %}
+<style>
+    body {
+        background-color: cadetblue;
+    }
+    form {
+        border: 2px solid black;
+        align-items: center;
+        background-color: antiquewhite;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    .form-group {
+        margin: 10px 0;
+    }
+    .form-text {
+        font-weight: 500;
+    }
+    button {
+        display: block;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Register</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ user_form.username.label_tag }}
+                        {{ user_form.username }}
+                        <small class="form-text text-muted">Enter your username.</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ user_form.password.label_tag }}
+                        {{ user_form.password }}
+                        <small class="form-text text-muted">Enter a strong password.</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ user_form.email.label_tag }}
+                        {{ user_form.email }}
+                        <small class="form-text text-muted">Enter your email address.</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ profile_form.portfolio_site.label_tag }}
+                        {{ profile_form.portfolio_site }}
+                        <small class="form-text text-muted">Enter your portfolio URL.</small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ profile_form.profile_pic.label_tag }}
+                        {{ profile_form.profile_pic }}
+                        <small class="form-text text-muted">Upload your profile picture (optional).</small>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            {% if registered %}
+                <div class="alert alert-success mt-3" role="alert">
+                    Registration successful!
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybIVL3QmniwOAAl8j0fi8uw+wx6P8y7WkPiD9FjU4ZHiGy5M+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-p5qY9eihRyn0iXZQsjo7ETOnZO5N8QOKZkLvh/TyjH2i/j6RfXQ5ErQ3aXfP1K9R" crossorigin="anonymous"></script>
+{% endblock %}
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% extends 'app2/html/base.html' %}
+{% block body_block %}
+
+<style>
+
+body {
+    background-color: blanchedalmond;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    border: 2px solid #ccc;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+</style>
+
+<div class="jumbotron">
+    <h1>Please Login</h1>
+    <form action="{% url 'app2:user_login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">User Name : </label>
+        <input type="text" name="username" id="username" placeholder="Enter your username" required>
+
+        <label for="username">Password : </label>
+        <input type="password" name="password">
+
+        <input id="btn" type="submit" name="submit" value="LOGIN">
+    </form>
+    {% if not_registered %}
+        <p style="color: red;">{{ not_registered }}</p>
+    {% endif %}
+
+    {% if not_active %}
+        <p style="color: red;">{{ not_active }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}  
