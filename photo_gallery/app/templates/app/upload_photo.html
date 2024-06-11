@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Photo</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 4px;
+            width: 300px;
+        }
+        input[type="file"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload a Photo</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

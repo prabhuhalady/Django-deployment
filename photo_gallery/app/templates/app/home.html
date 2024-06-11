@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo Site</title>
+    <style>
+        body {
+            background-image: url("https://png.pngtree.com/back_origin_pic/04/48/50/84cd2a9fbc6cbd5522b2f048a56703a8.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter: blur(1px);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button-upload {background-color: #008CBA;}
+        .button-view {background-color: #f44336;}
+        h1{
+            background-color: antiquewhite;
+            color: black;
+            padding: 10px;
+            width: 500px;
+            text-align: center;
+            margin: auto;
+        }
+        img{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DEEKSHA PU COLLEGE</h1>
+    <img src=
+"https://i0.wp.com/deekshalearning.com/wp-content/uploads/2021/02/Deeksha-Judicial-Layout-Bengaluru.webp?fit=1200%2C1200&ssl=1"
+        alt="Not found" 
+        width="600" 
+        height="600" />
+    <h1>Welcome to Photo Site</h1>
+    <a href="{% url 'upload_photo' %}" class="button button-upload">Upload Photo</a>
+    <a href="{% url 'view_photos' %}" class="button button-view">View Photos</a>
+</body>
+</html>
